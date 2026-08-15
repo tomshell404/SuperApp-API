@@ -40,6 +40,6 @@ setcookie('remember_token', '', time() - 3600, '/');
 setcookie('remember_user', '', time() - 3600, '/');
 
 // Redirect to your index page
-header('Location: http://duckdns.org');
+header('Location: https://superapp-api-dgf3.onrender.com');
 exit();
 ?>

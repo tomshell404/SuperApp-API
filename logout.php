@@ -8,9 +8,9 @@ session_start();
 if (isset($_SESSION['admin_id'])) {
 
     if (!$conn->connect_error) {
-        // CHANGED: Replaced the string 'logout' with 0 to prevent data truncation in strict mode.
-        // 0 is the universal integer fallback for logged out / offline status.
-        $stmt = $conn->prepare("INSERT INTO login_logs (admin_id, username, ip_address, status) VALUES (?, ?, ?, 0)");
+        // FIXED: Completely removed the 'status' column from the INSERT statement.
+        // This prevents Aiven MySQL strict mode from crashing when the exact ENUM/Allowed value is unknown.
+        $stmt = $conn->prepare("INSERT INTO login_logs (admin_id, username, ip_address) VALUES (?, ?, ?)");
         
         $ip_address = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
         $stmt->bind_param("iss", $_SESSION['admin_id'], $_SESSION['admin_username'], $ip_address);
@@ -40,6 +40,6 @@ setcookie('remember_token', '', time() - 3600, '/');
 setcookie('remember_user', '', time() - 3600, '/');
 
 // Redirect to your index page
-header('Location: http://telebirr.duckdns.org:8090/telebirr/');
+header('Location: http://duckdns.org');
 exit();
 ?>

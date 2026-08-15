@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Validate input
     if (empty($username) || empty($password)) {
         $_SESSION['login_error'] = 'Please enter both username and password';
-        header('Location: http://telebirr.duckdns.org:8090/telebirr/');
+        header('Location: https://superapp-api-dgf3.onrender.com/');
         exit();
     }
     
@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             }
             
             // Redirect to dashboard
-            header('Location: http://telebirr.duckdns.org:8090/telebirr/dashboard.php');
+            header('Location: https://superapp-api-dgf3.onrender.com/dashboard.php');
             exit();
             
         } else {
@@ -166,6 +166,6 @@ function checkBruteForce($ip_address, $db) {
 $db->close();
 
 // If we get here, login failed - redirect back to index
-header('Location: http://telebirr.duckdns.org:8090/telebirr/');
+header('Location: https://superapp-api-dgf3.onrender.com/');
 exit();
 ?>

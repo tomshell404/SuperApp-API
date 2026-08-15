@@ -14,6 +14,6 @@ if (isset($_COOKIE[session_name()])) {
 session_destroy();
 
 // Redirect to login page with full URL
-header('Location: http://telebirr.duckdns.org:8090/telebirr/login.php');
+header('Location: https://superapp-api-dgf3.onrender.com/login.php');
 exit();
 ?>

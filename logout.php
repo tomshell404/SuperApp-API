@@ -39,6 +39,6 @@ setcookie('remember_token', '', time() - 3600, '/');
 setcookie('remember_user', '', time() - 3600, '/');
 
 // Redirect to the specified URL (your index page)
-header('Location: http://telebirr.duckdns.org:8090/telebirr/');
+header('Location: https://superapp-api-dgf3.onrender.com/');
 exit();
 ?>
